@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería de Juegos</title>
+    <style>
+        /* Estilos base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .featured-content {
+            width: 100%; /* Contenedor ocupa todo el ancho */
+            max-height: 400px; /* Limita la altura */
+            overflow: hidden; /* Oculta el contenido desbordante */
+            border-radius: 50px; /* Borde redondeado para el contenedor */
+            margin-bottom: 1rem; /* Espaciado debajo del contenedor */
+            position: relative; /* Posicionamiento relativo para el contenido interno */
+            display: flex; /* Usar flexbox para centrar */
+            justify-content: center; /* Centra horizontalmente */
+            align-items: center; /* Centra verticalmente */
+        }
+        
+        .featured-content video {
+            width: 100%; /* Ancho del video al 100% del contenedor */
+            height: 100%; /* Alto del video al 100% del contenedor */
+            object-fit: cover; /* Asegura que el video llene el contenedor sin distorsionarse */
+            display: block; /* Bloque para que ocupe el espacio correctamente */
+            border-radius: 50px; /* Borde redondeado para el video */
+        }
+
+        main {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .game-box {
+            width: 23%;
+            border: 1px solid wheat;
+            border-radius: 10px;
+            padding: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            font-size: 14px;
+        }
+
+        .game-box:hover {
+            transform: scale(1.05);
+        }
+
+        .game-box img {
+            width: 80%;
+            height: auto;
+            border-radius: 5px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .buttons {
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background-color: #333;
+            color: white;
+            margin-top: 1rem;
+        }
+
+        /* Estilos del pop-up */
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+        }
+
+        /* Estilos del pop-up */
+.popup-content {
+    width: 80%;
+    max-width: 500px;
+    background: #333;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    color: white; /* Cambia el color del texto a blanco */
+}
+
+.popup-content h3 {
+    margin-bottom: 20px;
+    color: white; /* Color blanco para el título */
+}
+
+.popup-content p {
+    margin-bottom: 40px;
+    color: white; /* Color blanco para la descripción */
+}
+
+
+        .popup-close {
+            display: block;
+            margin: 0 auto;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .popup-close:hover {
+            background-color: red;
+        }
+
+        .detalles{
+            background-color: #28A745;
+            color: white; /* Añadir esta línea para que el texto sea blanco */
+        }
+
+        /* Estilo para el botón de favoritos */
+        .favoritos.active {
+            background-color: red; /* Color dorado cuando está activo */
+            color: black; /* Cambiar color del texto */
+        }
+        .verDetalles{
+            color: white;
+        }
+
+
+        /* Estilos generales */
+/* Fondo del body */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-image: url('imgenes/fondo2.jpeg'); /* Fondo del body */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #333;
+}
+
+/* Fondo de los juegos (márgenes internos) */
+section {
+    flex: 1 1 21%;
+    margin: 10px;
+    padding: 20px;
+    background-image: url('imgenes/fondo.webp'); /* Fondo para las cajas de los juegos */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 8px;
+    text-align: center;
+    color: white; /* Asegúrate de que el texto sea visible sobre el fondo */
+}
+
+img {
+    border-radius: 8px;
+    transition: transform 0.3s;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav a {
+    color: #F1FAEE;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    background-color: #333;
+    transition: background-color 0.3s;
+}
+
+nav a:hover {
+    background-color: #B0BEC5;
+}
+
+main {
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+section {
+    flex: 1 1 21%;
+    margin: 10px;
+    padding: 20px;
+    background-color: #005B5B;
+    border-radius: 8px;
+    text-align: center;
+}
+
+img {
+    border-radius: 8px;
+    transition: transform 0.3s;
+}
+
+.buttons {
+    margin-top: 10px;
+}
+
+button {
+    padding: 10px 15px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.favoritos {
+    background-color: #007BFF; /* Azul */
+    color: white;
+}
+
+.favoritos.red {
+    background-color: red; /* Rojo */
+}
+
+.jugar {
+    background-color: #28A745; /* Verde */
+    color: white;
+}
+
+button:hover {
+    opacity: 0.8; /* Efecto hover */
+}
+
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #333;
+    color: #F1FAEE;
+}
+
+/* Estilos del pop-up */
+.popup-content p {
+    margin-bottom: 40px;
+    color: white; /* Añadir esta línea para que el texto sea blanco */
+}
+
+/* Responsivo para diferentes dispositivos */
+@media (max-width: 768px) {
+    /* Para dispositivos móviles */
+    .game-box {
+        width: 100%; /* La caja del juego ocupa el ancho completo */
+        margin: 0 0 1rem; /* Espacio entre las cajas */
+    }
+
+    .featured-content {
+        max-height: 200px;
+    }
+
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    /* Para tablets */
+    .game-box {
+        width: 47%; /* Dos columnas para tablets */
+        margin: 0.5%;
+    }
+
+    .featured-content {
+        max-height: 300px;
+    }
+}
+
+@media (min-width: 1025px) {
+    /* Para escritorio */
+    .game-box {
+        width: 23%; /* Cuatro columnas en pantallas grandes */
+    }
+
+    .featured-content {
+        max-height: 400px;
+    }
+
+    nav ul {
+        gap: 1.5rem;
+    }
+}
+
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Bienvenidos a </h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="Juegos.html">Juegos</a></li>
+                <li><a href="favoritos.html">Favoritos</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="acerca.html">Acerca de nosotros</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="featured-content">
+        <video autoplay loop muted playsinline class="active">
+            <source src="cansado.mp4" type="video/mp4" />
+            Tu navegador no soporta el elemento de video.
+        </video>
+    </div>
+
+    <main>
+        <!-- Ejemplo de juego con botón de detalles -->
+        <section id="game1" class="game-box">
+            <h2>Juego 1</h2>
+            <p>Descripción del Juego 1.</p>
+            <img src="geo.1.jpg" alt="Juego 1">
+            <div class="buttons">
+                <button class="favoritos" onclick="toggleFavorito(this)">❤️ Agregar a Favoritos</button>
+                <button class="jugar" onclick="window.location.href='https://alejandro03valenzuela.github.io/Jueg0/'">Jugar</button>
+                <button class="detalles" onclick="verDetalles('Juego 1', 'El siguiente juego se basa en saltar y no tocar los cubos de color rojo, podras saltar con la tecla espacio o las teclas de dirección.')">Ver detalles</button>
+            </div>
+        </section>
+        <section id="game2" class="game-box">
+            <h2>Juego 2</h2>
+            <p>Descripción del Juego 2.</p>
+            <img src="juego.2.webp" alt="Juego 2">
+            <div class="buttons">
+                <button class="favoritos" onclick="toggleFavorito(this)">❤️ Agregar a Favoritos</button>
+                <button class="jugar" onclick="window.location.href='https://alejandro03valenzuela.github.io/Batalla/'">Jugar</button>
+                <button class="detalles" onclick="verDetalles('Juego 2', 'Este juego se basa en atarjar al oponente con una boleta de poder, la cual podras lanzar con la tecla G si eres el jugador uno y la tecla K si eres el jugador 2, para el jugador uno sus teclas para moverse son W, A, S y D, para el jugador 2 son las teclas de dirección.')">Ver detalles</button>
+            </div>
+        </section>
+        <section id="game3" class="game-box">
+            <h2>Juego 3</h2>
+            <p>Descripción del Juego 3.</p>
+            <img src="juego2.webp" alt="Juego 3">
+            <div class="buttons">
+                <button class="favoritos" onclick="toggleFavorito(this)">❤️ Agregar a Favoritos</button>
+                <button class="jugar" onclick="window.location.href='https://alejandro03valenzuela.github.io/Serpi/'">Jugar</button>
+                <button class="detalles" onclick="verDetalles('Juego 3', 'El juego se basa en atrapar manzanitas con la serpiente, te podras mover con las teclas de dirección y así atrapar las manzanitas, al perder solo debes darle a la tecla Enter para volver a jugar.')">Ver detalles</button>
+            </div>
+        </section>
+        <section id="game4" class="game-box">
+            <h2>Juego 4</h2>
+            <p>Descripción del Juego 4.</p>
+            <img src="geo.1.jpg" alt="Juego 4">
+            <div class="buttons">
+                <button class="favoritos" onclick="toggleFavorito(this)">❤️ Agregar a Favoritos</button>
+                <button class="jugar" onclick="window.location.href='https://alejandro03valenzuela.github.io/Jueg0/'">Jugar</button>
+                <button class="detalles" onclick="verDetalles('Juego 4', 'El siguiente juego se basa en saltar y no tocar los cubos de color rojo, podras saltar con la tecla espacio o las teclas de dirección.')">Ver detalles</button>
+            </div>
+        </section>
+        <section id="game5" class="game-box">
+            <h2>Juego 5</h2>
+            <p>Descripción del Juego 5.</p>
+            <img src="geo.1.jpg" alt="Juego 5">
+            <div class="buttons">
+                <button class="favoritos" onclick="toggleFavorito(this)">❤️ Agregar a Favoritos</button>
+                <button class="jugar" onclick="window.location.href='https://alejandro03valenzuela.github.io/Jueg0/'">Jugar</button>
+                <button class="detalles" onclick="verDetalles('Juego 5', 'El siguiente juego se basa en saltar y no tocar los cubos de color rojo, podras saltar con la tecla espacio o las teclas de dirección.')">Ver detalles</button>
+            </div>
+        </section>
+        <section id="game6" class="game-box">
+            <h2>Juego 6</h2>
+            <p>Descripción del Juego 6.</p>
+            <img src="geo.1.jpg" alt="Juego 6">
+            <div class="buttons">
+                <button class="favoritos" onclick="toggleFavorito(this)">❤️ Agregar a Favoritos</button>
+                <button class="jugar" onclick="window.location.href='https://alejandro03valenzuela.github.io/Jueg0/'">Jugar</button>
+                <button class="detalles" onclick="verDetalles('Juego 6', 'El siguiente juego se basa en saltar y no tocar los cubos de color rojo, podras saltar con la tecla espacio o las teclas de dirección.')">Ver detalles</button>
+            </div>
+        </section>
+        <section id="game6" class="game-box">
+            <h2>Juego 7</h2>
+            <p>Descripción del Juego 7.</p>
+            <img src="geo.1.jpg" alt="Juego 6">
+            <div class="buttons">
+                <button class="favoritos" onclick="toggleFavorito(this)">❤️ Agregar a Favoritos</button>
+                <button class="jugar" onclick="window.location.href='https://alejandro03valenzuela.github.io/Jueg0/'">Jugar</button>
+                <button class="detalles" onclick="verDetalles('Juego 7', 'El siguiente juego se basa en saltar y no tocar los cubos de color rojo, podras saltar con la tecla espacio o las teclas de dirección.')">Ver detalles</button>
+            </div>
+        </section>
+        <section id="game6" class="game-box">
+            <h2>Juego 8</h2>
+            <p>Descripción del Juego 8.</p>
+            <img src="geo.1.jpg" alt="Juego 6">
+            <div class="buttons">
+                <button class="favoritos" onclick="toggleFavorito(this)">❤️ Agregar a Favoritos</button>
+                <button class="jugar" onclick="window.location.href='https://alejandro03valenzuela.github.io/Jueg0/'">Jugar</button>
+                <button class="detalles" onclick="verDetalles('Juego 8', 'El siguiente juego se basa en saltar y no tocar los cubos de color rojo, podras saltar con la tecla espacio o las teclas de dirección.')">Ver detalles</button>
+            </div>
+        </section>
+    </main>
+
+    <div class="popup-overlay" id="popupOverlay">
+        <div class="popup-content">
+            <h3 id="popupTitle"></h3>
+            <p id="popupDescription"></p>
+            <button class="popup-close" onclick="closePopup()">Cerrar</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2024 Tienda de juegos gratis. Todos los derechos reservados a Ale.</p>
+    </footer>
+
+    <script>
+        function verDetalles(titulo, descripcion) {
+            document.getElementById('popupTitle').innerText = titulo;
+            document.getElementById('popupDescription').innerText = descripcion;
+            document.getElementById('popupOverlay').style.display = 'flex';
+        }
+
+        function closePopup() {
+            document.getElementById('popupOverlay').style.display = 'none';
+        }
+
+        function toggleFavorito(button) {
+            button.classList.toggle('active');
+            if (button.classList.contains('active')) {
+                button.innerHTML = '❤️ Agregado a Favoritos';
+            } else {
+                button.innerHTML = '❤️ Agregar a Favoritos';
+            }
+        }
+    </script>
+</body>
+</html>
+

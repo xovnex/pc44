@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda - Contáctanos</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Contacto</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="Juegos.html">Juegos</a></li>
+                <li><a href="favoritos.html">Favoritos</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="acerca.html">Acerca de nosotros</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="contacto" style="padding: 30px; max-width: 500px; margin: 20px auto; background-color: #fff; border: 1px solid #ccc; border-radius: 10px;">
+            <h2 style="text-align: center; margin-bottom: 15px;">Envíanos un mensaje</h2>
+            <form action="#" method="POST" style="display: flex; flex-direction: column;">
+                <label for="nombre" style="margin-bottom: 10px; font-weight: bold;">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required style="margin-bottom: 20px; padding: 12px; border-radius: 5px; border: 1px solid #ccc; font-family: inherit; font-size: 1em;">
+
+                <label for="correo" style="margin-bottom: 10px; font-weight: bold;">Correo Electrónico:</label>
+                <input type="email" id="correo" name="correo" required style="margin-bottom: 20px; padding: 12px; border-radius: 5px; border: 1px solid #ccc; font-family: inherit; font-size: 1em;">
+
+                <label for="telefono" style="margin-bottom: 10px; font-weight: bold;">Teléfono:</label>
+                <input type="tel" id="telefono" name="telefono" required style="margin-bottom: 20px; padding: 12px; border-radius: 5px; border: 1px solid #ccc; font-family: inherit; font-size: 1em;">
+
+                <label for="tipo-mensaje" style="margin-bottom: 10px; font-weight: bold;">Tipo de Mensaje:</label>
+                <select id="tipo-mensaje" name="tipo-mensaje" required style="margin-bottom: 20px; padding: 12px; border-radius: 5px; border: 1px solid #ccc; font-family: inherit; font-size: 1em;">
+                    <option value="" disabled selected>Selecciona una opción</option>
+                    <option value="soporte">Soporte Técnico</option>
+                    <option value="informacion">Información de Producto</option>
+                    <option value="sugerencias">Sugerencias</option>
+                    <option value="otros">Otros</option>
+                </select>
+
+                <label for="mensaje" style="margin-bottom: 10px; font-weight: bold;">Mensaje:</label>
+                <textarea id="mensaje" name="mensaje" required style="margin-bottom: 20px; padding: 12px; border-radius: 5px; border: 1px solid #ccc; font-family: inherit; font-size: 1em; resize: vertical; min-height: 120px;"></textarea>
+
+                <button type="submit" style="padding: 12px; background-color: #333; color: #F1FAEE; border: none; border-radius: 5px; cursor: pointer; font-size: 1em;">Enviar</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 - Todos los derechos reservados a Ale.</p>
+    </footer>
+
+</body>
+</html>
+

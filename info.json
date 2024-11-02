@@ -1,0 +1,121 @@
+{
+  "pages": [
+    {
+      "title": "Acerca",
+      "header": {
+        "title": "Bienvenido a Mi Página",
+        "nav": [
+          { "text": "Inicio", "link": "inicio.html" },
+          { "text": "Juegos", "link": "juegos.html" },
+          { "text": "Favoritos", "link": "favoritos.html" },
+          { "text": "Contacto", "link": "contacto.html" }
+        ]
+      },
+      "sections": [
+        {
+          "id": "bienvenida",
+          "title": "Bienvenido a Nuestro Espacio",
+          "content": [
+            "En nuestra página, te ofrecemos una variedad de juegos y contenido diseñado para brindarte horas de diversión. Nos esforzamos por proporcionar la mejor experiencia para nuestros usuarios, combinando calidad y entretenimiento.",
+            "¡Explora nuestros juegos y no dudes en añadir tus favoritos para tenerlos siempre a mano!"
+          ],
+          "link": { "text": "Explorar Juegos", "href": "juegos.html" }
+        },
+        {
+          "title": "Acerca de",
+          "content": [
+            "Somos una compañía dedicada a ofrecer los mejores servicios en nuestra área, comprometidos con la calidad y la satisfacción de nuestros clientes."
+          ]
+        }
+      ],
+      "footer": {
+        "text": "© 2024 Mi Página - Todos los derechos reservados"
+      }
+    },
+    {
+      "title": "Galería de Juegos",
+      "header": {
+        "title": "Bienvenidos a la Tienda Free-to-Play",
+        "nav": [
+          { "text": "Inicio", "link": "inicio.html" },
+          { "text": "Juegos", "link": "juegos.html" },
+          { "text": "Favoritos", "link": "favoritos.html" },
+          { "text": "Contacto", "link": "contacto.html" }
+        ]
+      },
+      "main": {
+        "games": [
+          {
+            "id": "game1",
+            "title": "Juego 1",
+            "description": "Descripción del Juego 1. Aquí puedes encontrar información sobre el primer juego.",
+            "image": "geo.1.jpg",
+            "buttons": [
+              { "text": "❤️ Agregar a Favoritos", "action": "toggleFavorito" },
+              {
+                "text": "Jugar",
+                "link": "https://alejandro03valenzuela.github.io/Jueg0/"
+              }
+            ]
+          },
+          {
+            "id": "game2",
+            "title": "Juego 2",
+            "description": "Descripción del Juego 2. Aquí puedes encontrar información sobre el segundo juego.",
+            "image": "geo.2.jpg",
+            "buttons": [
+              { "text": "❤️ Agregar a Favoritos", "action": "toggleFavorito" },
+              { "text": "Jugar", "link": "https://link-al-juego-2.com" }
+            ]
+          },
+          {
+            "id": "game3",
+            "title": "Juego 3",
+            "description": "Descripción del Juego 3. Aquí puedes encontrar información sobre el tercer juego.",
+            "image": "geo.3.png",
+            "buttons": [
+              { "text": "❤️ Agregar a Favoritos", "action": "toggleFavorito" },
+              { "text": "Jugar", "link": "https://link-al-juego-3.com" }
+            ]
+          }
+        ]
+      },
+      "footer": {
+        "text": "© 2024 Galería de Juegos"
+      }
+    },
+    {
+      "title": "Juegos Favoritos",
+      "header": {
+        "title": "Mis Juegos Favoritos",
+        "nav": [
+          { "text": "Inicio", "link": "inicio.html" },
+          { "text": "Juegos", "link": "juegos.html" },
+          { "text": "Favoritos", "link": "favoritos.html" },
+          { "text": "Contacto", "link": "contacto.html" }
+        ]
+      },
+      "main": {
+        "container": "contenedor-favoritos"
+      },
+      "footer": {
+        "text": "© 2024 Mis Juegos Favoritos. Todos los derechos reservados."
+      }
+    },
+    {
+      "title": "Tienda - Contáctanos",
+      "header": {
+        "title": "Contáctanos",
+        "nav": [
+          { "text": "Inicio", "link": "inicio.html" },
+          { "text": "Juegos", "link": "juegos.html" },
+          { "text": "Favoritos", "link": "favoritos.html" },
+          { "text": "Contacto", "link": "contacto.html" }
+        ]
+      },
+      "footer": {
+        "text": "© 2024 Tienda - Contáctanos"
+      }
+    }
+  ]
+}

@@ -1,0 +1,176 @@
+/* Estilos generales */
+/* Fondo del body */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-image: url('imgenes/fondo2.jpeg'); /* Fondo del body */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #333;
+}
+
+/* Fondo de los juegos (márgenes internos) */
+section {
+    flex: 1 1 21%;
+    margin: 10px;
+    padding: 20px;
+    background-image: url('imgenes/fondo.webp'); /* Fondo para las cajas de los juegos */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 8px;
+    text-align: center;
+    color: white; /* Asegúrate de que el texto sea visible sobre el fondo */
+}
+
+img {
+    border-radius: 8px;
+    transition: transform 0.3s;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav a {
+    color: #F1FAEE;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    background-color: #333;
+    transition: background-color 0.3s;
+}
+
+nav a:hover {
+    background-color: #B0BEC5;
+}
+
+main {
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+section {
+    flex: 1 1 21%;
+    margin: 10px;
+    padding: 20px;
+    background-color: #005B5B;
+    border-radius: 8px;
+    text-align: center;
+}
+
+img {
+    border-radius: 8px;
+    transition: transform 0.3s;
+}
+
+.buttons {
+    margin-top: 10px;
+}
+
+button {
+    padding: 10px 15px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.favoritos {
+    background-color: #007BFF; /* Azul */
+    color: white;
+}
+
+.favoritos.red {
+    background-color: red; /* Rojo */
+}
+
+.jugar {
+    background-color: #28A745; /* Verde */
+    color: white;
+}
+
+button:hover {
+    opacity: 0.8; /* Efecto hover */
+}
+
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #333;
+    color: #F1FAEE;
+}
+
+/* Estilos del pop-up */
+.popup-content p {
+    margin-bottom: 40px;
+    color: white; /* Añadir esta línea para que el texto sea blanco */
+}
+
+/* Responsivo para diferentes dispositivos */
+@media (max-width: 768px) {
+    /* Para dispositivos móviles */
+    .game-box {
+        width: 100%; /* La caja del juego ocupa el ancho completo */
+        margin: 0 0 1rem; /* Espacio entre las cajas */
+    }
+
+    .featured-content {
+        max-height: 200px;
+    }
+
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    /* Para tablets */
+    .game-box {
+        width: 47%; /* Dos columnas para tablets */
+        margin: 0.5%;
+    }
+
+    .featured-content {
+        max-height: 300px;
+    }
+}
+
+@media (min-width: 1025px) {
+    /* Para escritorio */
+    .game-box {
+        width: 23%; /* Cuatro columnas en pantallas grandes */
+    }
+
+    .featured-content {
+        max-height: 400px;
+    }
+
+    nav ul {
+        gap: 1.5rem;
+    }
+}
